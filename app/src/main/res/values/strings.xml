@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Shirou</string>
+    <string name="star">Star</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="play">Play</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="watch">Watch</string>
+    <string name="releaseddate">releasedDate</string>
+    <string name="title">title</string>
+    <string name="todo">TODO</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="john_stokes">John Stokes</string>
+    <string name="view_all">View All</string>
+    <string name="popular_shows">Popular Shows</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="latest">Latest</string>
+    <string name="top">Top</string>
+    <string name="backbutton">BackButton</string>
+</resources>
