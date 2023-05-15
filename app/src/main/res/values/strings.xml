@@ -37,4 +37,8 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="create_your_account">Create your Account</string>
     <string name="type_your_name">Type your Name</string>
+    <string name="version">Version</string>
+    <string name="beta_version_0_0_1">beta version : 0.0.1</string>
+    <string name="about_me">About Me</string>
+    <string name="check_for_updates">Check for updates</string>
 </resources>

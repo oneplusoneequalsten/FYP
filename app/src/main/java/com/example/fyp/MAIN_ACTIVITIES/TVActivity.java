@@ -104,7 +104,7 @@ public class TVActivity extends AppCompatActivity {
             try {
                 JSONArray jsonArray = response.getJSONArray("results");
 
-                for (int i = 4; i < jsonArray.length(); i++) {
+                for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                     String original_title = jsonObject.getString("name");

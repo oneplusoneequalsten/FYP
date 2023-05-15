@@ -24,16 +24,118 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_menu" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
-        android:text="@string/info"
-        android:textStyle="bold"
-        android:textColor="@color/white"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/logo"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/splash_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="65dp"
+        android:background="#59FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:layout_marginStart="40dp"
+        android:text="@string/version"
+        android:textSize="12sp"
+        android:textColor="#DFFFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/versionNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="40dp"
+        android:text="@string/beta_version_0_0_1"
+        android:textSize="10sp"
+        android:textColor="#CEFFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/version"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/checkForUpdates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="40dp"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        android:textColor="#DFFFFFFF"
+        android:text="@string/check_for_updates"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/versionNum" />
+
+    <TextView
+        android:id="@+id/aboutMe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="40dp"
+        android:text="@string/about_me"
+        android:textColor="#DFFFFFFF"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkForUpdates" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/facebook"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="90dp"
+        android:src="@drawable/facebook"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutMe" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/instagram"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="60dp"
+        android:src="@drawable/instagram"
+        app:layout_constraintStart_toStartOf="@id/facebook"
+        app:layout_constraintTop_toBottomOf="@+id/aboutMe" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/discord"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="60dp"
+        android:src="@drawable/discord"
+        app:layout_constraintStart_toStartOf="@id/instagram"
+        app:layout_constraintTop_toBottomOf="@+id/aboutMe" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/github"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="60dp"
+        android:src="@drawable/github"
+        app:layout_constraintStart_toStartOf="@+id/discord"
+        app:layout_constraintTop_toBottomOf="@+id/aboutMe" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

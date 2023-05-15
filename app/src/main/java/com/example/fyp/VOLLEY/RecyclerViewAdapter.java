@@ -40,7 +40,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         RecyclerMainModule anime = animeList.get(position);
         holder.title.setText(anime.getOriginalTitle());
-        Glide.with(context).load("https://image.tmdb.org/t/p/w500" + anime.getPosterPath()).into(holder.animeImg);
+        Glide.with(context).load("https://image.tmdb.org/t/p/w500" + anime.getBackdropPath()).into(holder.animeImg);
 
         holder.constraintLayout.setOnClickListener(v -> {
             Intent intent = new Intent(context, DetailActivity.class);
