@@ -5,16 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBg"
-    tools:context=".UpcomingActivity">
+    tools:context=".MAIN_PAGE_ACTIVITIES.ViewActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upcoming"
-        android:textColor="@color/white"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewAll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="70dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/backButton" />
+
+    <Button
+        android:id="@+id/backButton"
+        style="@style/Widget.Material3.Button.Icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="55dp"
+        android:backgroundTint="#C8FC878A"
+        android:contentDescription="@string/backbutton"
+        android:padding="12dp"
+        app:icon="@drawable/baseline_arrow_back_24"
+        app:itemRippleColor="@android:color/transparent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <ProgressBar
+        android:id="@+id/progressBarAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerViewAll"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerViewAll"
+        app:layout_constraintStart_toStartOf="@+id/recyclerViewAll"
+        app:layout_constraintTop_toTopOf="@+id/recyclerViewAll" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

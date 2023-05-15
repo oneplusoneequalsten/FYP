@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBg"
+    tools:context=".MAIN_ACTIVITIES.TVActivity">
+
+    <ScrollView
+        android:id="@+id/scrollable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/carousel"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorBg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:background="@drawable/shadow_effect_2"
+                android:contentDescription="@string/todo"
+                app:layout_constraintBottom_toBottomOf="@+id/carousel"
+                app:layout_constraintEnd_toEndOf="@+id/carousel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/carousel"
+                tools:ignore="ImageContrastCheck" />
+
+            <SearchView
+                android:id="@+id/searchBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/search_view_bg"
+                android:backgroundTint="@color/colorBnb"
+                android:elevation="5dp"
+                android:layoutDirection="rtl"
+                android:searchIcon="@drawable/baseline_search_20"
+                app:closeIcon="@drawable/baseline_close_20_new"
+                app:iconifiedByDefault="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/carousel"
+                app:queryHint="Don't click on the icon" />
+
+            <TextView
+                android:id="@+id/trendingNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="40dp"
+                android:text="@string/trending_now"
+                android:textColor="#9EB8B8B8"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchBar"
+                tools:ignore="SmallSp,TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/viewAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="40dp"
+                android:drawablePadding="2dp"
+                android:drawableRight="@drawable/baseline_arrow_forward_24"
+                android:shadowColor="#9E00FF"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="9"
+                android:text="@string/view_all"
+                android:textColor="#C083E1"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchBar"
+                tools:ignore="SmallSp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/popularMovies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/trendingNow" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/bottom_background"
+        android:elevation="15dp"
+        app:itemIconSize="20dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

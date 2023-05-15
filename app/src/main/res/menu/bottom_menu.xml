@@ -3,18 +3,18 @@
 
     <item
         android:id="@+id/bottom_home"
-        android:icon="@drawable/baseline_home_24"
-        android:title="@string/home" />
+        android:icon="@drawable/baseline_movie_24"
+        android:title="@string/movie" />
+    <item
+        android:id="@+id/bottom_play"
+        android:icon="@drawable/baseline_tv_24"
+        android:title="@string/tv" />
     <item
         android:id="@+id/bottom_search"
         android:icon="@drawable/baseline_search_24"
         android:title="@string/search" />
     <item
-        android:id="@+id/bottom_play"
-        android:icon="@drawable/baseline_smart_display_24"
-        android:title="@string/play" />
-    <item
-        android:id="@+id/bottom_bookmark"
-        android:icon="@drawable/baseline_bookmark_24"
-        android:title="@string/bookmark" />
+        android:id="@+id/bottom_about"
+        android:icon="@drawable/baseline_info_24"
+        android:title="@string/info" />
 </menu>

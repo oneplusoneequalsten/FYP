@@ -5,35 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBg"
-    tools:context=".PlayActivity">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
-        android:text="Play"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".OTHER_ACTIVITIES.VideoViewActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
+        android:id="@+id/bottomNavigationVideo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/bottom_background"
         android:layout_margin="20dp"
+        android:background="@drawable/bottom_background"
         android:elevation="15dp"
         app:itemIconSize="20dp"
         app:itemIconTint="@drawable/item_selector"
         app:itemRippleColor="@android:color/transparent"
         app:labelVisibilityMode="unlabeled"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu" />
+
+        app:menu="@menu/bottom_menu_video"
+        tools:ignore="VisualLintBottomNav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

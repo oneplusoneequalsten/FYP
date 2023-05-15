@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBg"
-    tools:context=".LatestActivity">
+    tools:context=".OTHER_ACTIVITIES.SplashActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Latest"
-        android:textColor="@color/white"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:src="@drawable/splash_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -14,41 +14,80 @@
         android:theme="@style/Theme.FYP"
         tools:targetApi="31">
         <activity
-            android:name=".ViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".TopActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LatestActivity"
-            android:exported="false" />
-        <activity
-            android:name=".UpcomingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BookmarkActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PlayActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SearchViewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SearchActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"
+            android:name=".OTHER_ACTIVITIES.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.FYPSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AUTHENTICATION.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".AUTHENTICATION.RegisterActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".VOLLEY.DetailTVActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".OTHER_ACTIVITIES.VideoViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MAIN_PAGE_ACTIVITIES.ViewActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".MAIN_PAGE_ACTIVITIES.TopActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".MAIN_PAGE_ACTIVITIES.NowPlayingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".MAIN_PAGE_ACTIVITIES.UpcomingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".VOLLEY.DetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".MAIN_ACTIVITIES.BookmarkActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".MAIN_ACTIVITIES.TVActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".MAIN_ACTIVITIES.SearchViewActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".MAIN_ACTIVITIES.MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"

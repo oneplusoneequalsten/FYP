@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Shirou</string>
+    <string name="app_name">Eiga</string>
     <string name="star">Star</string>
     <string name="home">Home</string>
     <string name="search">Search</string>
@@ -14,7 +14,27 @@
     <string name="view_all">View All</string>
     <string name="popular_shows">Popular Shows</string>
     <string name="upcoming">Upcoming</string>
-    <string name="latest">Latest</string>
-    <string name="top">Top</string>
+    <string name="NowPlaying">Now Playing</string>
+    <string name="top">Top Rated</string>
     <string name="backbutton">BackButton</string>
+    <string name="hello">Hello,</string>
+    <string name="user">User TMDB</string>
+    <string name="released_imdb_en">Released . IMDB (EN)</string>
+    <string name="info">Info</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="nextbutton">nextButton</string>
+    <string name="trending_now">Trending Now</string>
+    <string name="tv">TV</string>
+    <string name="movie">MOVIE</string>
+    <string name="sign_in">Sign In</string>
+    <string name="type_your_password">Type Your Password</string>
+    <string name="type_your_email">Type your Email</string>
+    <string name="get_started">Get Started</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="don_t_have_an_account_yet">Don\'t have an account yet?</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="create_your_account">Create your Account</string>
+    <string name="type_your_name">Type your Name</string>
 </resources>

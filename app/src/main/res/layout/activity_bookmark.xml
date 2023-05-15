@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBg"
-    tools:context=".BookmarkActivity">
+    tools:context=".MAIN_ACTIVITIES.BookmarkActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="260dp"
-        android:text="BookMark"
+        android:text="@string/info"
         android:textStyle="bold"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

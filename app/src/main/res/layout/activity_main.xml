@@ -6,17 +6,17 @@
     android:layout_height="match_parent"
     android:background="@color/colorBg"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MainActivity">
+    tools:context=".MAIN_ACTIVITIES.MainActivity">
 
     <TextView
         android:id="@+id/welcomeBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/welcome_back"
-        android:textColor="@color/white"
-        android:textSize="8sp"
+        android:layout_marginTop="60dp"
+        android:text="@string/hello"
+        android:textColor="#C4FFFFFF"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SmallSp" />
@@ -26,28 +26,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="2dp"
-        android:text="@string/john_stokes"
+        android:text="@string/user"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeBack" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/logo"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_margin="32dp"
-        android:src="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <SearchView
         android:id="@+id/searchBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/search_view_bg"
         android:backgroundTint="@color/colorBnb"
@@ -55,32 +45,44 @@
         android:layoutDirection="rtl"
         android:searchIcon="@drawable/baseline_search_20"
         app:closeIcon="@drawable/baseline_close_20_new"
-        app:iconifiedByDefault="true"
+        app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user"
+        app:queryHint="Don't click on the icon" />
+
+    <Button
+        android:id="@+id/logo"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="70dp"
+        android:padding="4dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="@color/colorBg"
+        android:contentDescription="@string/NowPlaying"
+        android:drawableLeft="@drawable/baseline_logout_24"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:defaultQueryHint="Search..."
-        app:queryHint="Search..." />
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/popularAnime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="40dp"
         android:text="@string/popular_shows"
-        android:textColor="#9EAEBBF4"
+        android:textColor="#9EB8B8B8"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchBar"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
         tools:ignore="SmallSp,TextContrastCheck" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="100dp"
@@ -88,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/popularAnime" />
 
     <ProgressBar
-        android:id="@+id/progressBae"
+        android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
@@ -100,8 +102,8 @@
         android:id="@+id/viewAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginTop="40dp"
         android:shadowColor="#9E00FF"
         android:shadowDx="0"
         android:shadowDy="0"
@@ -111,7 +113,7 @@
         android:textSize="10sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchBar"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
         tools:ignore="SmallSp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -134,13 +136,14 @@
         tools:ignore="VisualLintBottomNav" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="@color/colorBnb"
         app:cardCornerRadius="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/viewAll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchBar">
@@ -148,23 +151,24 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutConstraint"
             android:layout_width="match_parent"
-            android:layout_height="90dp">
+            android:layout_height="100dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/upComingCircle"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginStart="36dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:src="@drawable/america"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ImageContrastCheck" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/latestCircle"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:src="@drawable/moon"
                 app:layout_constraintEnd_toStartOf="@+id/topCircle"
                 app:layout_constraintStart_toEndOf="@+id/upComingCircle"
@@ -174,7 +178,7 @@
                 android:id="@+id/topCircle"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="36dp"
                 android:src="@drawable/longitude"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -184,7 +188,7 @@
                 android:id="@+id/upComing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="38sp"
+                android:layout_marginStart="39sp"
                 android:layout_marginTop="5dp"
                 android:text="@string/upcoming"
                 android:textColor="#D3FFFFFF"
@@ -197,9 +201,9 @@
                 android:id="@+id/latest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="82dp"
+                android:layout_marginStart="71dp"
                 android:layout_marginTop="5dp"
-                android:text="@string/latest"
+                android:text="@string/NowPlaying"
                 android:textColor="#D3FFFFFF"
                 android:textSize="8sp"
                 app:layout_constraintStart_toEndOf="@+id/upComing"
@@ -211,7 +215,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="47dp"
+                android:layout_marginEnd="34dp"
                 android:text="@string/top"
                 android:textColor="#D3FFFFFF"
                 android:textSize="8sp"

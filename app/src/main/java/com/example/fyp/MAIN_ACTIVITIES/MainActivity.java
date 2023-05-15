@@ -1,10 +1,13 @@
-package com.example.fyp;
+package com.example.fyp.MAIN_ACTIVITIES;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +18,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.fyp.AUTHENTICATION.LoginActivity;
+import com.example.fyp.MAIN_PAGE_ACTIVITIES.NowPlayingActivity;
+import com.example.fyp.MAIN_PAGE_ACTIVITIES.TopActivity;
+import com.example.fyp.MAIN_PAGE_ACTIVITIES.UpcomingActivity;
+import com.example.fyp.MAIN_PAGE_ACTIVITIES.ViewActivity;
+import com.example.fyp.R;
+import com.example.fyp.VOLLEY.AnimeMainAdapter;
+import com.example.fyp.VOLLEY.AnimeMainModule;
+import com.example.fyp.VOLLEY.VolleySingleton;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,15 +39,26 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private FirebaseAuth firebaseAuth;
+
     private RecyclerView recyclerView;
     private RequestQueue requestQueue;
 
+    Button logo;
+
+    FirebaseFirestore firebaseFirestore;
+
     ProgressBar progressBar;
+
+    String userId;
+
+    TextView user;
     private List<AnimeMainModule> animeList;
 
     @SuppressLint("NonConstantResourceId")
@@ -41,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        progressBar = findViewById(R.id.progressBae);
+        progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
 
@@ -64,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         latestCircle.setOnClickListener(view -> {
-            Intent intent = new Intent(this, LatestActivity.class);
+            Intent intent = new Intent(this, NowPlayingActivity.class);
             startActivity(intent);
         });
 
@@ -79,6 +106,13 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        SearchView searchView = findViewById(R.id.searchBar);
+        searchView.setQueryHint("Click in the center of search bar");
+        searchView.setOnClickListener(view -> {
+            Intent intent = new Intent(this, SearchViewActivity.class);
+            startActivity(intent);
+        });
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigation);
         bottomNavigationView.setSelectedItemId(R.id.bottom_home);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -90,10 +124,10 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                     return true;
                 case R.id.bottom_play:
-                    startActivity(new Intent(getApplicationContext(), PlayActivity.class));
+                    startActivity(new Intent(getApplicationContext(), TVActivity.class));
                     finish();
                     return true;
-                case R.id.bottom_bookmark:
+                case R.id.bottom_about:
                     startActivity(new Intent(getApplicationContext(), BookmarkActivity.class));
                     finish();
                     return true;
@@ -113,22 +147,63 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                     String original_title = jsonObject.getString("original_title");
-                    String poster_path = jsonObject.getString("poster_path");
+                    String poster_path = jsonObject.getString("backdrop_path");
+                    String backdrop_path = jsonObject.getString("poster_path");
+                    String release_date = jsonObject.getString("release_date");
+                    String overview = jsonObject.getString("overview");
                     String vote_average = jsonObject.getString("vote_average");
                     String vote_count = jsonObject.getString("vote_count");
-                    AnimeMainModule anime = new AnimeMainModule(original_title, poster_path, vote_average, vote_count);
+                    AnimeMainModule anime = new AnimeMainModule(original_title, poster_path, backdrop_path, release_date, overview, vote_average, vote_count);
                     animeList.add(anime);
                     progressBar.setVisibility(View.INVISIBLE);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            AnimeAdapter adapter = new AnimeAdapter(MainActivity.this, animeList);
+            AnimeMainAdapter adapter = new AnimeMainAdapter(MainActivity.this, animeList);
             recyclerView.setAdapter(adapter);
         }, error -> {
             Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             progressBar.setVisibility(View.INVISIBLE);
         });
         requestQueue.add(jsonObjectRequest);
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setMessage("Are you sure you want to exit?")
+                .setCancelable(false)
+                .setPositiveButton("Yes", (dialogInterface, i) -> finish())
+                .setNegativeButton("No", null)
+                .show();
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        if (currentUser == null) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        } else {
+            firebaseFirestore = FirebaseFirestore.getInstance();
+            user = findViewById(R.id.user);
+            userId = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getUid();
+
+            DocumentReference documentReference = firebaseFirestore.collection("User").document(userId);
+            documentReference.addSnapshotListener(MainActivity.this, (documentSnapshot, error) -> {
+                assert documentSnapshot != null;
+                user.setText(documentSnapshot.getString("name"));
+            });
+
+            logo = findViewById(R.id.logo);
+            logo.setOnClickListener(view -> {
+                firebaseAuth.signOut();
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            });
+        }
     }
 }
