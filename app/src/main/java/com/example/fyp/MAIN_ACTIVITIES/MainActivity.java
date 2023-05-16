@@ -5,12 +5,12 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,7 +31,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,12 +48,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth firebaseAuth;
+    FirebaseAuth firebaseAuth;
+    RecyclerView recyclerView;
+    RequestQueue requestQueue;
 
-    private RecyclerView recyclerView;
-    private RequestQueue requestQueue;
-
-    Button logo;
 
     FirebaseFirestore firebaseFirestore;
 
@@ -147,13 +148,14 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                     String original_title = jsonObject.getString("original_title");
+                    String title = jsonObject.getString("title");
                     String poster_path = jsonObject.getString("backdrop_path");
                     String backdrop_path = jsonObject.getString("poster_path");
                     String release_date = jsonObject.getString("release_date");
                     String overview = jsonObject.getString("overview");
                     String vote_average = jsonObject.getString("vote_average");
                     String vote_count = jsonObject.getString("vote_count");
-                    AnimeMainModule anime = new AnimeMainModule(original_title, poster_path, backdrop_path, release_date, overview, vote_average, vote_count);
+                    AnimeMainModule anime = new AnimeMainModule(original_title, title, poster_path, backdrop_path, release_date, overview, vote_average, vote_count);
                     animeList.add(anime);
                     progressBar.setVisibility(View.INVISIBLE);
                 }
@@ -186,23 +188,21 @@ public class MainActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if (currentUser == null) {
+        if (firebaseAuth == null || currentUser == null) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
         } else {
+            Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
             firebaseFirestore = FirebaseFirestore.getInstance();
             user = findViewById(R.id.user);
             userId = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getUid();
 
             DocumentReference documentReference = firebaseFirestore.collection("User").document(userId);
-            documentReference.addSnapshotListener(MainActivity.this, (documentSnapshot, error) -> {
-                assert documentSnapshot != null;
-                user.setText(documentSnapshot.getString("name"));
-            });
-
-            logo = findViewById(R.id.logo);
-            logo.setOnClickListener(view -> {
-                firebaseAuth.signOut();
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                    assert documentSnapshot != null;
+                    user.setText(documentSnapshot.getString("name"));
+                }
             });
         }
     }

@@ -41,4 +41,6 @@
     <string name="beta_version_0_0_1">beta version : 0.0.1</string>
     <string name="about_me">About Me</string>
     <string name="check_for_updates">Check for updates</string>
+    <string name="alternate_title">Alternate Title</string>
+    <string name="rating">Rating</string>
 </resources>

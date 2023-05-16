@@ -17,7 +17,7 @@
         android:backgroundTint="@color/colorBnb"
         android:elevation="5dp"
         android:layoutDirection="rtl"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="140dp"
         android:searchIcon="@drawable/baseline_search_20"
         app:closeIcon="@drawable/baseline_close_20_new"
         app:iconifiedByDefault="false"
@@ -25,6 +25,20 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="@color/colorBg"
+        android:contentDescription="@string/NowPlaying"
+        android:drawableLeft="@drawable/baseline_logout_24"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlHardcoded,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"

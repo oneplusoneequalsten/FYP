@@ -71,13 +71,14 @@ public class ViewActivity extends AppCompatActivity {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                     String original_title = jsonObject.getString("original_title");
+                    String title = jsonObject.getString("title");
                     String poster_path = jsonObject.getString("backdrop_path");
                     String backdrop_path = jsonObject.getString("poster_path");
                     String release_date = jsonObject.getString("release_date");
                     String overview = jsonObject.getString("overview");
                     String vote_average = jsonObject.getString("vote_average");
                     String vote_count = jsonObject.getString("vote_count");
-                    AnimeMainModule anime = new AnimeMainModule(original_title, poster_path, backdrop_path, release_date, overview, vote_average, vote_count);
+                    AnimeMainModule anime = new AnimeMainModule(original_title, title, poster_path, backdrop_path, release_date, overview, vote_average, vote_count);
                     animeList.add(anime);
                     progressBar.setVisibility(View.INVISIBLE);
                 }

@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="110dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -106,6 +105,54 @@
                     android:maxLines="5"
                     android:textColor="#C8FFFFFF"
                     android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/altTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="500dp"
+                    android:layout_marginEnd="15dp"
+                    android:textColor="#C8FFFFFF"
+                    android:textStyle="bold"
+                    android:text="@string/alternate_title"/>
+
+                <TextView
+                    android:id="@+id/altTitleMain"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="530dp"
+                    android:padding="14dp"
+                    android:textSize="13sp"
+                    android:background="@drawable/rounded_corner"
+                    android:layout_marginEnd="15dp"
+                    android:textColor="#C8FFFFFF"
+                    android:text="@string/alternate_title"/>
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="610dp"
+                    android:layout_marginEnd="15dp"
+                    android:textColor="#C8FFFFFF"
+                    android:textStyle="bold"
+                    android:text="@string/rating"/>
+
+                <TextView
+                    android:id="@+id/ratingMain"
+                    android:layout_width="350dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="640dp"
+                    android:padding="14dp"
+                    android:textSize="13sp"
+                    android:background="@drawable/rounded_corner"
+                    android:layout_marginEnd="15dp"
+                    android:textColor="#C8FFFFFF"
+                    android:text="@string/rating"/>
 
                 <Button
                     android:id="@+id/backButton"

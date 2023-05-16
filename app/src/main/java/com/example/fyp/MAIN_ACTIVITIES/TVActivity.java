@@ -108,13 +108,14 @@ public class TVActivity extends AppCompatActivity {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                     String original_title = jsonObject.getString("name");
+                    String title = jsonObject.getString("original_name");
                     String poster_path = jsonObject.getString("backdrop_path");
                     String backdrop_path = jsonObject.getString("poster_path");
                     String release_date = jsonObject.getString("first_air_date");
                     String overview = jsonObject.getString("overview");
                     String vote_average = jsonObject.getString("vote_average");
                     String vote_count = jsonObject.getString("vote_count");
-                    RecyclerMainModule anime = new RecyclerMainModule(original_title, poster_path, backdrop_path, release_date, overview, vote_average, vote_count);
+                    RecyclerMainModule anime = new RecyclerMainModule(original_title, title, poster_path, backdrop_path, release_date, overview, vote_average, vote_count);
                     movieList.add(anime);
                 }
             } catch (JSONException e) {
@@ -138,13 +139,14 @@ public class TVActivity extends AppCompatActivity {
                 for (int i =1; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     String original_title = jsonObject.getString("name");
+                    String title = jsonObject.getString("original_name");
                     String poster_path = jsonObject.getString("poster_path");
                     String backdrop_path = jsonObject.getString("backdrop_path");
                     String release_date = jsonObject.getString("first_air_date");
                     String overview = jsonObject.getString("overview");
                     String vote_average = jsonObject.getString("vote_average");
                     String vote_count = jsonObject.getString("vote_count");
-                    TVModule anime = new TVModule(original_title, poster_path, backdrop_path, release_date, overview, vote_average, vote_count);
+                    TVModule anime = new TVModule(original_title, title, poster_path, backdrop_path, release_date, overview, vote_average, vote_count);
                     animeList.add(anime);
                 }
             } catch (JSONException e) {

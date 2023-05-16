@@ -45,12 +45,16 @@ public class DetailTVActivity extends AppCompatActivity {
         TextView animeTitle = findViewById(R.id.animeTitle);
         TextView releaseDate = findViewById(R.id.releaseDate);
         TextView overview = findViewById(R.id.overview);
+        TextView altTitleMain = findViewById(R.id.altTitleMain);
+        TextView ratingMain = findViewById(R.id.ratingMain);
         ImageView posterImg = findViewById(R.id.poster_image_small);
         Bundle bundle = getIntent().getExtras();
 
         String mTitle = bundle.getString("title");
         String mReleaseDate = bundle.getString("releaseDate");
         String mOverview = bundle.getString("overview");
+        String mAltTitle = bundle.getString("title");
+        String mRating = bundle.getString("vote");
         String mAnimeImg = bundle.getString("posterImg");
         String mPosterImg = bundle.getString("animeImg");
 
@@ -59,6 +63,7 @@ public class DetailTVActivity extends AppCompatActivity {
         animeTitle.setText(mTitle);
         releaseDate.setText(mReleaseDate);
         overview.setText(mOverview);
-
+        altTitleMain.setText(mAltTitle);
+        ratingMain.setText(mRating);
     }
 }

@@ -37,20 +37,22 @@ public class DetailActivity extends AppCompatActivity {
         });
 
         Button backBtn = findViewById(R.id.backButton);
-        backBtn.setOnClickListener(view -> {
-            onBackPressed();
-        });
+        backBtn.setOnClickListener(view -> onBackPressed());
 
         ImageView animeImg = findViewById(R.id.poster_image);
         TextView animeTitle = findViewById(R.id.animeTitle);
         TextView releaseDate = findViewById(R.id.releaseDate);
         TextView overview = findViewById(R.id.overview);
+        TextView altTitleMain = findViewById(R.id.altTitleMain);
+        TextView ratingMain = findViewById(R.id.ratingMain);
         ImageView posterImg = findViewById(R.id.poster_image_small);
         Bundle bundle = getIntent().getExtras();
 
         String mTitle = bundle.getString("title");
         String mReleaseDate = bundle.getString("releaseDate");
         String mOverview = bundle.getString("overview");
+        String mAltTitle = bundle.getString("title");
+        String mRating = bundle.getString("vote");
         String mAnimeImg = bundle.getString("animeImg");
         String mPosterImg = bundle.getString("posterImg");
 
@@ -59,6 +61,7 @@ public class DetailActivity extends AppCompatActivity {
         animeTitle.setText(mTitle);
         releaseDate.setText(mReleaseDate);
         overview.setText(mOverview);
-
+        altTitleMain.setText(mAltTitle);
+        ratingMain.setText(mRating);
     }
 }

@@ -45,6 +45,7 @@ public class TVMainAdapter extends RecyclerView.Adapter<TVMainAdapter.AnimeHolde
 
             Bundle bundle = new Bundle();
             bundle.putString("title", anime.getOriginalTitle());
+            bundle.putString("altTitle", anime.getTitle());
             bundle.putString("vote", anime.getVoteAverage());
             bundle.putString("animeImg", anime.getPosterPath());
             bundle.putString("posterImg", anime.getBackdropPath());

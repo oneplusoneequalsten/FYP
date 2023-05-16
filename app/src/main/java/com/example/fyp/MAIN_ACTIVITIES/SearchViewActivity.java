@@ -3,11 +3,14 @@ package com.example.fyp.MAIN_ACTIVITIES;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.fyp.AUTHENTICATION.LoginActivity;
 import com.example.fyp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class SearchViewActivity extends AppCompatActivity {
 
@@ -37,6 +40,14 @@ public class SearchViewActivity extends AppCompatActivity {
                     return true;
             }
             return false;
+        });
+
+        Button logo;
+        logo = findViewById(R.id.logout);
+        logo.setOnClickListener(view -> {
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(SearchViewActivity.this, LoginActivity.class));
+            finish();
         });
     }
     @Override
